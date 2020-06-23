@@ -1,6 +1,7 @@
 ---
 - name: Prep 
   hosts: localhost
+  connection: local
   vars:
     become: yes
   tasks:
