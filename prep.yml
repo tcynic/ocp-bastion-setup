@@ -3,7 +3,6 @@
   hosts: localhost
   vars:
     become: yes
-    become_method: sudo
   tasks:
   - name: Install support packages
     yum:
