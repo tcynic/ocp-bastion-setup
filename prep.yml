@@ -1,0 +1,26 @@
+---
+- name: Prep 
+  hosts: localhost
+  vars:
+    become: yes
+    become_method: sudo
+  tasks:
+  - name: Install support packages
+    yum:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - haproxy
+      - httpd
+      - httpd-tools
+      - jq
+      - vim-enhanced
+  - name: Install openshift installer utility
+    unarchive:
+      src: https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-install-linux.tar.gz
+      dest: /usr/local/bin
+      remote_src: yes
+  - name: Install OC utility
+    unarchive:
+      src: https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz
+      dest: /usr/local/bin
