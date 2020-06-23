@@ -25,3 +25,8 @@
       src: https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz
       dest: /usr/local/bin
       remote_src: yes
+  - name: Start service httpd, if not started
+    service:
+      name: httpd
+      state: started
+      enabeled: yes
