@@ -29,4 +29,3 @@
     service:
       name: httpd
       state: started
-      enabeled: yes
