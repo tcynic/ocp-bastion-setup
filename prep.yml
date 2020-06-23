@@ -3,7 +3,7 @@
   hosts: localhost
   connection: local
   vars:
-    become: yes
+    become: true
   tasks:
   - name: Install support packages
     yum:
@@ -15,7 +15,6 @@
       - httpd-tools
       - jq
       - vim-enhanced
-    become_user: root
   - name: Install openshift installer utility
     unarchive:
       src: https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-install-linux.tar.gz
@@ -25,3 +24,4 @@
     unarchive:
       src: https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz
       dest: /usr/local/bin
+      remote_src: yes
